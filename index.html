@@ -2,20 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NearMed - Nearby Medicine Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NearMed – Nearby Medicine Finder</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>NearMed</h1>
-    <p>Find nearby pharmacies with your medicine</p>
+  <h1>NearMed – Nearby Medicine Finder</h1>
+  <p>Enter the name of a medicine to find nearby pharmacies that have it in stock.</p>
 
-    <input type="text" id="medicineInput" placeholder="Enter medicine name" />
-    <button onclick="searchMedicine()">Search</button>
+  <input type="text" id="searchInput" placeholder="Enter medicine name" />
+  <button onclick="searchMedicine()">Search</button>
 
-    <div id="results"></div>
-  </div>
+  <div id="result"></div>
 
   <script src="script.js"></script>
 </body>
