@@ -1,40 +1,28 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 20px;
-  text-align: center;
-}
-h1 {
-  color: #1e90ff;
-}
-input[type="text"] {
-  padding: 10px;
-  width: 60%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-button {
-  padding: 10px 20px;
-  margin-left: 10px;
-  background-color: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #0b6ecf;
-}
-#result {
-  margin-top: 30px;
-  font-size: 18px;
-}
-.medicine {
-  background: #fff;
-  padding: 15px;
-  margin: 10px auto;
-  width: 60%;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+const medicines = [
+  { name: "Paracetamol", location: "Pharmacy A" },
+  { name: "Ibuprofen", location: "Pharmacy B" },
+  { name: "Amoxicillin", location: "Pharmacy C" },
+  { name: "Cetirizine", location: "Pharmacy D" },
+  { name: "Azithromycin", location: "Pharmacy E" }
+];
+
+function searchMedicine() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+  const resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = ""; // Clear previous results
+
+  const found = medicines.filter(med =>
+    med.name.toLowerCase().includes(query)
+  );
+
+  if (found.length > 0) {
+    found.forEach(med => {
+      const card = document.createElement("div");
+      card.className = "medicine";
+      card.innerHTML = `<strong>${med.name}</strong> is available at <em>${med.location}</em>`;
+      resultDiv.appendChild(card);
+    });
+  } else {
+    resultDiv.innerHTML = "<p>No nearby pharmacy found with that medicine.</p>";
+  }
 }
